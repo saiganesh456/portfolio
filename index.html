@@ -139,7 +139,7 @@ to{opacity:1; transform:translateY(0);}
 
 <!-- HERO -->
 <section>
-<img id="heroBg" class="bg" src="/static/hero.jpg">
+<img id="heroBg" class="bg" src="static/hero.jpg">
 <div class="content">
 <h1 id="typing"></h1>
 <p>ECE Student | Python Developer</p>
@@ -311,7 +311,7 @@ let hero = document.getElementById("heroBg");
 hero.style.opacity = 0;
 
 setTimeout(()=>{
-hero.src = "/static/" + heroImgs[h];
+hero.src = "static/" + heroImgs[h];
 hero.style.opacity = 1;
 h = (h + 1) % heroImgs.length;
 },500);
@@ -325,7 +325,7 @@ setInterval(()=>{
 let img=document.getElementById(id);
 img.style.opacity=0;
 setTimeout(()=>{
-img.src="/static/"+images[i];
+img.src="static/"+images[i];
 img.style.opacity=1;
 i=(i+1)%images.length;
 },400);
