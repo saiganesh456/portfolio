@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sai Ganesh Portfolio</title>
+
+<style>
+body {
+margin:0;
+font-family:'Segoe UI';
+color:white;
+scroll-behavior:smooth;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+/* SECTION */
+section {
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+/* OVERLAY */
+section::after{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* DEFAULT IMAGE */
+.bg {
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+filter:brightness(75%);
+z-index:-2;
+transition:opacity 1s ease;
+}
+
+/* HERO FIX */
+#heroBg{
+object-position:center 20%;
+}
+
+/* SOIL FIX */
+section:nth-of-type(3) .bg{
+object-position:center 20%;
+}
+
+/* CONTENT */
+.content {
+text-align:center;
+z-index:1;
+padding:20px;
+}
+
+/* 🔥 GLASS CARD */
+.card-box{
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(15px);
+border-radius: 20px;
+padding: 25px;
+box-shadow: 0 0 30px rgba(0,255,255,0.1);
+transition: 0.4s;
+}
+
+.card-box:hover{
+transform: scale(1.05);
+box-shadow: 0 0 40px rgba(0,255,255,0.6);
+}
+
+/* TEXT */
+h1 {
+font-size:65px;
+animation:fadeUp 1s ease;
+}
+
+p {
+max-width:700px;
+margin:10px auto;
+line-height:1.7;
+animation:fadeUp 2s ease;
+}
+
+/* SCROLL */
+.scroll-down {
+font-size:30px;
+margin-top:20px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
+}
+
+/* FLEX */
+.flex {
+display:flex;
+align-items:center;
+gap:60px;
+padding:20px;
+}
+
+/* SLIDER */
+.slider img {
+width:450px;
+height:300px;
+object-fit:contain;
+border-radius:15px;
+box-shadow:0 0 30px rgba(0,255,255,0.5);
+transition:0.5s;
+}
+
+.slider img:hover{
+transform:scale(1.08);
+box-shadow:0 0 50px rgba(0,255,255,0.8);
+}
+
+/* ANIMATIONS */
+@keyframes bounce {
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
+
+@keyframes fadeUp {
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section>
+<img id="heroBg" class="bg" src="/static/hero.jpg">
+<div class="content">
+<h1 id="typing"></h1>
+<p>ECE Student | Python Developer</p>
+<div class="scroll-down" onclick="scrollNext()">↓</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section>
+<div class="content card-box">
+<h1>About Me</h1>
+
+<p>
+I am Sai Ganesh from Nellore, Andhra Pradesh. Currently pursuing B.Tech in Electronics and Communication Engineering at Vel Tech.
+</p>
+
+<p>
+I am highly interested in Python programming and Software Development. I enjoy solving logical problems and building real-world applications.
+</p>
+
+<p>
+I am a quick learner with good communication skills and strong adaptability to new technologies.
+</p>
+
+<p>
+I am passionate about growing as a developer and contributing effectively in IT companies.
+</p>
+
+<div class="scroll-down" onclick="scrollNext()">↓</div>
+</div>
+</section>
+
+<!-- SOIL -->
+<section>
+<img class="bg" src="/static/csp.jpg">
+<div class="content card-box">
+<h1>Soil Testing & Crop Prediction</h1>
+<p><b>3rd Year – 1st Semester</b></p>
+
+<p>
+Developed an intelligent system to analyze soil parameters such as pH level, moisture content, and nutrients
+to recommend suitable crops for farmers.
+</p>
+
+<p><b>Technologies:</b> Python, Data Analysis, Machine Learning Basics</p>
+</div>
+</section>
+
+<!-- NETWORK -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Network Security Simulation</h1>
+<p><b>3rd Year – 2nd Semester</b></p>
+
+<p>
+Built a virtual cybersecurity lab using Kali Linux and Ubuntu.
+Performed vulnerability scanning using Nmap and penetration testing using Metasploit.
+</p>
+
+<p><b>Tools:</b> Kali Linux, Nmap, Metasploit, VirtualBox</p>
+</div>
+
+<div class="slider"><img id="netSlide"></div>
+</div>
+</section>
+
+<!-- AI -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Deep Learning Speech Enhancement</h1>
+<p><b>4th Year – 1st Semester</b></p>
+
+<p>
+Developed a deep learning model to remove background noise and enhance speech clarity.
+</p>
+
+<p><b>Technologies:</b> Python, Deep Learning</p>
+</div>
+
+<div class="slider"><img id="aiSlide"></div>
+</div>
+</section>
+
+<!-- ROBOT -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Design and Development of Staircase Climbing Robot for Navigation and Object Handling</h1>
+<p><b>4th Year – 2nd Semester</b></p>
+
+<p>
+Designed and developed a robotic system capable of climbing stairs and handling objects efficiently.
+</p>
+
+<p><b>Tools:</b> Mechanical Design, Motors</p>
+</div>
+
+<div class="slider"><img id="robotSlide"></div>
+</div>
+</section>
+
+<!-- PYTHON -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Python & Problem Solving</h1>
+<p>
+I regularly practice Python, DSA, and logical problem solving.
+</p>
+</div>
+
+<div class="slider"><img id="pythonSlide"></div>
+</div>
+</section>
+
+<!-- EDITING -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Creative Skills</h1>
+<p>
+Video editing and photo editing with creative storytelling.
+</p>
+</div>
+
+<div class="slider"><img id="editSlide"></div>
+</div>
+</section>
+
+<!-- DRAWING -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Drawing & Art</h1>
+<p>
+Spiritual drawings like Lord Rama and Venkateswara Swami.
+</p>
+</div>
+
+<div class="slider"><img id="drawSlide"></div>
+</div>
+</section>
+
+<!-- ACTIVITIES -->
+<section>
+<div class="flex">
+<div class="card-box">
+<h1>Activities & Interests</h1>
+<p>
+Cricket, Volleyball, Music, interacting with people, and enjoying every moment.
+</p>
+</div>
+
+<div class="slider"><img id="activitySlide"></div>
+</div>
+</section>
+
+<script>
+
+/* HERO SLIDESHOW */
+let heroImgs = ["hero.jpg","hero2.jpg","hero3.jpg"];
+let h = 0;
+
+setInterval(()=>{
+let hero = document.getElementById("heroBg");
+
+hero.style.opacity = 0;
+
+setTimeout(()=>{
+hero.src = "/static/" + heroImgs[h];
+hero.style.opacity = 1;
+h = (h + 1) % heroImgs.length;
+},500);
+
+},4000);
+
+/* OTHER SLIDERS */
+function slider(id,images,delay){
+let i=0;
+setInterval(()=>{
+let img=document.getElementById(id);
+img.style.opacity=0;
+setTimeout(()=>{
+img.src="/static/"+images[i];
+img.style.opacity=1;
+i=(i+1)%images.length;
+},400);
+},delay);
+}
+
+slider("netSlide",["net1.jpg","net2.jpg"],3000);
+slider("aiSlide",["ai1.jpg","ai2.jpg"],3000);
+slider("robotSlide",["robot1.jpg","robot2.jpg"],3000);
+slider("pythonSlide",["python1.jpg","python2.jpg"],3000);
+slider("editSlide",["edit1.jpg","edit2.jpg"],3000);
+slider("drawSlide",["draw1.jpg","draw2.jpg","draw3.jpg"],3000);
+slider("activitySlide",["cricket.jpg","volleyball.jpg","dj.jpg"],3000);
+
+function scrollNext(){
+window.scrollBy({top:window.innerHeight,behavior:'smooth'});
+}
+
+/* TYPING */
+let text="Sai Ganesh";
+let x=0;
+function type(){
+if(x<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(x++);
+setTimeout(type,100);
+}
+}
+type();
+
+</script>
+
+</body>
+</html>
