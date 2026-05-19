@@ -1,361 +1,782 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Sai Ganesh Portfolio</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sai Ganesh | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
-body {
+
+*{
 margin:0;
-font-family:'Segoe UI';
-color:white;
+padding:0;
+box-sizing:border-box;
 scroll-behavior:smooth;
-background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+font-family:'Poppins',sans-serif;
 }
 
-/* SECTION */
-section {
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00e5ff;
+border-radius:20px;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(15px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:#00e5ff;
+text-shadow:0 0 20px #00e5ff;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#00e5ff;
+}
+
+/* HERO */
+
+.hero{
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 position:relative;
 overflow:hidden;
+text-align:center;
 }
 
-/* OVERLAY */
-section::after{
-content:'';
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-top:0;
-left:0;
-z-index:-1;
-}
-
-/* DEFAULT IMAGE */
-.bg {
+.hero video{
 position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-object-position:center;
-filter:brightness(75%);
+filter:brightness(35%);
 z-index:-2;
-transition:opacity 1s ease;
 }
 
-/* HERO FIX */
-#heroBg{
-object-position:center 20%;
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
 }
 
-/* SOIL FIX */
-section:nth-of-type(3) .bg{
-object-position:center 20%;
-}
-
-/* CONTENT */
-.content {
-text-align:center;
-z-index:1;
+.hero-content{
 padding:20px;
 }
 
-/* 🔥 GLASS CARD */
-.card-box{
-background: rgba(255,255,255,0.05);
-backdrop-filter: blur(15px);
-border-radius: 20px;
-padding: 25px;
-box-shadow: 0 0 30px rgba(0,255,255,0.1);
-transition: 0.4s;
+.hero-img{
+width:220px;
+height:220px;
+border-radius:50%;
+overflow:hidden;
+margin:auto;
+margin-bottom:30px;
+border:4px solid #00e5ff;
+box-shadow:0 0 40px rgba(0,229,255,0.5);
+animation:float 4s ease-in-out infinite;
 }
 
-.card-box:hover{
-transform: scale(1.05);
-box-shadow: 0 0 40px rgba(0,255,255,0.6);
+.hero-img img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* TEXT */
-h1 {
-font-size:65px;
-animation:fadeUp 1s ease;
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-12px);
+}
 }
 
-p {
-max-width:700px;
-margin:10px auto;
-line-height:1.7;
-animation:fadeUp 2s ease;
+.hero-content h1{
+font-size:80px;
+margin-bottom:20px;
 }
 
-/* SCROLL */
-.scroll-down {
-font-size:30px;
-margin-top:20px;
-cursor:pointer;
-animation:bounce 1.5s infinite;
+.hero-content span{
+color:#00e5ff;
+text-shadow:0 0 35px #00e5ff;
 }
 
-/* FLEX */
-.flex {
+.hero-content p{
+font-size:22px;
+line-height:1.8;
+color:#d1d5db;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
+}
+
+.hero-buttons{
 display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 35px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+}
+
+.primary-btn{
+background:#00e5ff;
+color:black;
+box-shadow:0 0 25px rgba(0,229,255,0.6);
+}
+
+.primary-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 40px rgba(0,229,255,1);
+}
+
+.secondary-btn{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);
+color:white;
+}
+
+.secondary-btn:hover{
+background:#00e5ff;
+color:black;
+}
+
+/* SECTION */
+
+section{
+padding:110px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:52px;
+margin-bottom:15px;
+color:#00e5ff;
+}
+
+.section-title p{
+color:#94a3b8;
+}
+
+/* GLASS CARD */
+
+.card{
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.08);
+padding:40px;
+border-radius:30px;
+transition:0.4s;
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(0,229,255,0.3);
+}
+
+/* ABOUT */
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:50px;
 align-items:center;
-gap:60px;
-padding:20px;
 }
 
-/* SLIDER */
-.slider img {
-width:450px;
-height:300px;
-object-fit:contain;
-border-radius:15px;
-box-shadow:0 0 30px rgba(0,255,255,0.5);
-transition:0.5s;
+.about-img img{
+width:100%;
+max-width:420px;
+height:520px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 0 40px rgba(0,229,255,0.3);
+border:2px solid rgba(0,229,255,0.25);
 }
 
-.slider img:hover{
-transform:scale(1.08);
-box-shadow:0 0 50px rgba(0,255,255,0.8);
+.about-content p{
+line-height:2;
+font-size:17px;
+color:#d1d5db;
 }
 
-/* ANIMATIONS */
-@keyframes bounce {
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(10px);}
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-@keyframes fadeUp {
-from{opacity:0; transform:translateY(40px);}
-to{opacity:1; transform:translateY(0);}
+.skill-card{
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+text-align:center;
 }
+
+.skill-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,229,255,0.35);
+}
+
+.skill-card i{
+font-size:40px;
+color:#00e5ff;
+margin-bottom:20px;
+}
+
+.skill-card h3{
+margin-bottom:15px;
+}
+
+.skill-card p{
+line-height:1.8;
+color:#d1d5db;
+}
+
+/* TECH STACK */
+
+.tech-stack{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:18px;
+margin-top:50px;
+}
+
+.tech{
+padding:14px 28px;
+border-radius:40px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.tech:hover{
+background:#00e5ff;
+color:black;
+transform:translateY(-5px);
+}
+
+/* PROJECTS */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:35px;
+}
+
+.project-card{
+background:rgba(255,255,255,0.04);
+border-radius:25px;
+overflow:hidden;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.project-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px rgba(0,229,255,0.35);
+}
+
+.project-card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.project-content{
+padding:28px;
+}
+
+.project-content h3{
+font-size:24px;
+margin-bottom:15px;
+color:#00e5ff;
+}
+
+.project-content p{
+line-height:1.8;
+color:#d1d5db;
+margin-bottom:22px;
+}
+
+.project-links{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.project-links a{
+padding:12px 24px;
+background:#00e5ff;
+color:black;
+text-decoration:none;
+font-weight:600;
+border-radius:30px;
+transition:0.3s;
+}
+
+.project-links a:hover{
+transform:translateY(-4px);
+box-shadow:0 0 25px rgba(0,229,255,0.7);
+}
+
+/* CONTACT */
+
+.contact-card{
+text-align:center;
+}
+
+.contact-card p{
+line-height:1.8;
+color:#d1d5db;
+margin-bottom:35px;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.contact-links a{
+padding:14px 30px;
+border-radius:40px;
+background:rgba(255,255,255,0.05);
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.contact-links a:hover{
+background:#00e5ff;
+color:black;
+transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+padding:25px;
+text-align:center;
+background:#020617;
+color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+font-size:48px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+nav ul{
+display:none;
+}
+
+.hero-img{
+width:170px;
+height:170px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Sai Ganesh</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
 <!-- HERO -->
-<section>
-<img id="heroBg" class="bg" src="static/hero.jpg">
-<div class="content">
-<h1 id="typing"></h1>
-<p>ECE Student | Python Developer</p>
-<div class="scroll-down" onclick="scrollNext()">↓</div>
+
+<section class="hero">
+
+<video autoplay muted loop>
+<source src="static/bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<div class="hero-img">
+<img src="static/profile.jpg">
 </div>
+
+<h1>
+Sai <span>Ganesh</span>
+</h1>
+
+<p>
+Python Developer | AI Application Developer | Creating Premium Responsive Websites & Real World Projects
+</p>
+
+<div class="hero-buttons">
+
+<a href="#projects" class="btn primary-btn">
+View Projects
+</a>
+
+<a href="resume.pdf" class="btn secondary-btn">
+Download Resume
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- ABOUT -->
-<section>
-<div class="content card-box">
-<h1>About Me</h1>
+
+<section id="about">
+
+<div class="section-title">
+
+<h2>About Me</h2>
 
 <p>
-I am Sai Ganesh from Nellore, Andhra Pradesh. Currently pursuing B.Tech in Electronics and Communication Engineering at Vel Tech.
+Passionate about Python, AI and modern web development.
 </p>
 
-<p>
-I am highly interested in Python programming and Software Development. I enjoy solving logical problems and building real-world applications.
-</p>
-
-<p>
-I am a quick learner with good communication skills and strong adaptability to new technologies.
-</p>
-
-<p>
-I am passionate about growing as a developer and contributing effectively in IT companies.
-</p>
-
-<div class="scroll-down" onclick="scrollNext()">↓</div>
 </div>
+
+<div class="about-grid">
+
+<div class="card about-content">
+
+<p>
+I am Sai Ganesh from Nellore, Andhra Pradesh currently pursuing B.Tech in Electronics and Communication Engineering at Vel Tech University.
+</p>
+
+<br>
+
+<p>
+I am passionate about Python development, AI applications and creating modern responsive websites with premium UI/UX experiences.
+</p>
+
+<br>
+
+<p>
+I enjoy solving logical problems, building real-world projects and continuously learning modern technologies.
+</p>
+
+</div>
+
+<div class="about-img">
+
+<img src="static/hero2.jpg">
+
+</div>
+
+</div>
+
 </section>
 
-<!-- SOIL -->
-<section>
-<img class="bg" src="static/soil.jpg">
-<div class="content card-box">
-<h1>Soil Testing & Crop Prediction</h1>
-<p><b>3rd Year – 1st Semester</b></p>
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="section-title">
+
+<h2>Skills</h2>
 
 <p>
-Developed an intelligent system to analyze soil parameters such as pH level, moisture content, and nutrients
-to recommend suitable crops for farmers.
+Technologies and tools I work with.
 </p>
 
-<p><b>Technologies:</b> Python, Data Analysis, Machine Learning Basics</p>
 </div>
-</section>
 
-<!-- NETWORK -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Network Security Simulation</h1>
-<p><b>3rd Year – 2nd Semester</b></p>
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<i class="fa-brands fa-python"></i>
+
+<h3>Python Development</h3>
 
 <p>
-Built a virtual cybersecurity lab using Kali Linux and Ubuntu.
-Performed vulnerability scanning using Nmap and penetration testing using Metasploit.
+Building applications, automation and backend logic using Python.
 </p>
 
-<p><b>Tools:</b> Kali Linux, Nmap, Metasploit, VirtualBox</p>
 </div>
 
-<div class="slider"><img id="netSlide"></div>
-</div>
-</section>
+<div class="skill-card">
 
-<!-- AI -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Deep Learning Speech Enhancement</h1>
-<p><b>4th Year – 1st Semester</b></p>
+<i class="fa-solid fa-code"></i>
+
+<h3>Web Development</h3>
 
 <p>
-Developed a deep learning model to remove background noise and enhance speech clarity.
+Creating responsive and modern websites using HTML, CSS and JavaScript.
 </p>
 
-<p><b>Technologies:</b> Python, Deep Learning</p>
 </div>
 
-<div class="slider"><img id="aiSlide"></div>
-</div>
-</section>
+<div class="skill-card">
 
-<!-- ROBOT -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Design and Development of Staircase Climbing Robot for Navigation and Object Handling</h1>
-<p><b>4th Year – 2nd Semester</b></p>
+<i class="fa-solid fa-robot"></i>
+
+<h3>AI Applications</h3>
 
 <p>
-Designed and developed a robotic system capable of climbing stairs and handling objects efficiently.
+Working with AI tools, APIs and AI-assisted development workflows.
 </p>
 
-<p><b>Tools:</b> Mechanical Design, Motors</p>
 </div>
 
-<div class="slider"><img id="robotSlide"></div>
-</div>
-</section>
+<div class="skill-card">
 
-<!-- PYTHON -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Python & Problem Solving</h1>
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>Problem Solving</h3>
+
 <p>
-I regularly practice Python, DSA, and logical problem solving.
+Strong logical thinking and problem solving using Python and DSA.
 </p>
+
 </div>
 
-<div class="slider"><img id="pythonSlide"></div>
 </div>
+
+<div class="tech-stack">
+
+<div class="tech">Python</div>
+<div class="tech">HTML</div>
+<div class="tech">CSS</div>
+<div class="tech">JavaScript</div>
+<div class="tech">APIs</div>
+<div class="tech">GitHub</div>
+<div class="tech">VS Code</div>
+<div class="tech">PyCharm</div>
+<div class="tech">AI Tools</div>
+
+</div>
+
 </section>
 
-<!-- EDITING -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Creative Skills</h1>
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="section-title">
+
+<h2>Featured Projects</h2>
+
 <p>
-Video editing and photo editing with creative storytelling.
+College projects and premium web development projects.
 </p>
+
 </div>
 
-<div class="slider"><img id="editSlide"></div>
-</div>
-</section>
+<div class="projects-grid">
 
-<!-- DRAWING -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Drawing & Art</h1>
+<!-- WEB PROJECT -->
+
+<div class="project-card">
+
+<img src="static/project1.jpg">
+
+<div class="project-content">
+
+<h3>Luxury Construction Websites</h3>
+
 <p>
-Spiritual drawings like Lord Rama and Venkateswara Swami.
+Designed and developed premium responsive websites for modern construction and real-estate businesses with elegant UI/UX and business-focused layouts.
 </p>
+
+<div class="project-links">
+
+<a href="https://saiganesh456.github.io/BR_builder/gateway/" target="_blank">
+BR Builders
+</a>
+
+<a href="https://saiganesh456.github.io/matrix-constructions/" target="_blank">
+Matrix Construction
+</a>
+
 </div>
 
-<div class="slider"><img id="drawSlide"></div>
 </div>
-</section>
 
-<!-- ACTIVITIES -->
-<section>
-<div class="flex">
-<div class="card-box">
-<h1>Activities & Interests</h1>
+</div>
+
+<!-- COLLEGE PROJECT -->
+
+<div class="project-card">
+
+<img src="static/project2.jpg">
+
+<div class="project-content">
+
+<h3>Speech Enhancement using Deep Learning</h3>
+
 <p>
-Cricket, Volleyball, Music, interacting with people, and enjoying every moment.
+Developed a deep learning model to reduce background noise and improve speech clarity using Python and AI techniques.
 </p>
+
 </div>
 
-<div class="slider"><img id="activitySlide"></div>
 </div>
+
+<!-- ROBOT PROJECT -->
+
+<div class="project-card">
+
+<img src="static/project3.jpg">
+
+<div class="project-content">
+
+<h3>Staircase Climbing Robot</h3>
+
+<p>
+Designed and developed a robot capable of staircase climbing and object handling for real-world applications.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<script>
+<!-- CONTACT -->
 
-/* HERO SLIDESHOW */
-let heroImgs = ["hero.jpg","hero2.jpg","hero3.jpg"];
-let h = 0;
+<section id="contact">
 
-setInterval(()=>{
-let hero = document.getElementById("heroBg");
+<div class="section-title">
 
-hero.style.opacity = 0;
+<h2>Contact Me</h2>
 
-setTimeout(()=>{
-hero.src = "static/" + heroImgs[h];
-hero.style.opacity = 1;
-h = (h + 1) % heroImgs.length;
-},500);
+<p>
+Open for internships, freelance projects and collaborations.
+</p>
 
-},4000);
+</div>
 
-/* OTHER SLIDERS */
-function slider(id,images,delay){
-let i=0;
-setInterval(()=>{
-let img=document.getElementById(id);
-img.style.opacity=0;
-setTimeout(()=>{
-img.src="static/"+images[i];
-img.style.opacity=1;
-i=(i+1)%images.length;
-},400);
-},delay);
-}
+<div class="card contact-card">
 
-slider("netSlide",["net1.jpg","net2.jpg"],3000);
-slider("aiSlide",["ai1.jpg","ai2.jpg"],3000);
-slider("robotSlide",["robot1.jpg","robot2.jpg"],3000);
-slider("pythonSlide",["python1.jpg","python2.jpg"],3000);
-slider("editSlide",["edit1.jpg","edit2.jpg"],3000);
-slider("drawSlide",["draw1.jpg","draw2.jpg","draw3.jpg"],3000);
-slider("activitySlide",["cricket.jpg","volleyball.jpg","dj.jpg"],3000);
+<p>
+Let's connect and build something amazing together.
+</p>
 
-function scrollNext(){
-window.scrollBy({top:window.innerHeight,behavior:'smooth'});
-}
+<div class="contact-links">
 
-/* TYPING */
-let text="Sai Ganesh";
-let x=0;
-function type(){
-if(x<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(x++);
-setTimeout(type,100);
-}
-}
-type();
+<a href="mailto:gummasaiganesh57@gmail.com">
+📧 Email
+</a>
 
-</script>
+<a href="https://github.com/saiganesh456" target="_blank">
+💻 GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/sai-ganesh-gumma-900556314" target="_blank">
+🔗 LinkedIn
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Sai Ganesh | Portfolio
+
+</footer>
 
 </body>
+
 </html>
