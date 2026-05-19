@@ -39,6 +39,49 @@ background:#d4af37;
 border-radius:20px;
 }
 
+/* LOADER */
+
+#loader{
+position:fixed;
+width:100%;
+height:100vh;
+background:#050816;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+animation:loaderHide 1s ease forwards;
+animation-delay:4s;
+}
+
+#loaderTyping{
+font-size:110px;
+font-weight:800;
+color:#d4af37;
+letter-spacing:3px;
+text-shadow:
+0 0 25px rgba(212,175,55,0.6),
+0 0 60px rgba(212,175,55,0.3);
+}
+
+#loaderTyping::after{
+content:"|";
+animation:blink 0.7s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+}
+
+@keyframes loaderHide{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
 /* HERO */
 
 .hero{
@@ -128,19 +171,15 @@ color:#d4af37;
 .hero-content{
 max-width:1000px;
 padding:20px;
-margin-top:300px;
+margin-top:260px;
 }
 
 .hero-content h1{
 font-size:110px;
 font-weight:800;
-line-height:1;
-margin-bottom:20px;
+color:white;
 text-shadow:0 0 35px rgba(212,175,55,0.2);
-}
-
-.hero-content h1 span{
-color:#d4af37;
+margin-bottom:20px;
 }
 
 /* GOLD LINE */
@@ -170,9 +209,10 @@ transform:translate(-50%,-50%);
 
 .hero-content p{
 font-size:22px;
-color:#e2e8f0;
+color:#ffffff;
 line-height:1.8;
 margin-bottom:45px;
+text-shadow:0 0 15px rgba(0,0,0,0.5);
 }
 
 /* BUTTONS */
@@ -183,8 +223,6 @@ justify-content:center;
 gap:30px;
 flex-wrap:wrap;
 }
-
-/* PRIMARY BUTTON */
 
 .primary-btn{
 padding:18px 55px;
@@ -202,8 +240,6 @@ box-shadow:0 0 35px rgba(212,175,55,0.4);
 transform:translateY(-5px);
 box-shadow:0 0 50px rgba(212,175,55,0.8);
 }
-
-/* SECONDARY BUTTON */
 
 .secondary-btn{
 padding:18px 45px;
@@ -236,22 +272,18 @@ animation:scroll 2s infinite;
 }
 
 @keyframes scroll{
-
 0%{
 transform:translateY(0);
 opacity:0.5;
 }
-
 50%{
 transform:translateY(12px);
 opacity:1;
 }
-
 100%{
 transform:translateY(0);
 opacity:0.5;
 }
-
 }
 
 /* SECTION */
@@ -315,9 +347,16 @@ max-width:620px;
 height:520px;
 object-fit:cover;
 object-position:center top;
-border-radius:30px;
-border:2px solid rgba(212,175,55,0.2);
-box-shadow:0 0 40px rgba(212,175,55,0.25);
+border-radius:35px;
+border:2px solid rgba(212,175,55,0.25);
+box-shadow:
+0 0 45px rgba(212,175,55,0.25),
+0 0 80px rgba(0,0,0,0.5);
+transition:0.5s ease;
+}
+
+.about-img img:hover{
+transform:scale(1.02);
 }
 
 .about-content p{
@@ -490,6 +529,10 @@ font-size:14px;
 
 @media(max-width:900px){
 
+.hero-content{
+margin-top:180px;
+}
+
 .hero-content h1{
 font-size:58px;
 }
@@ -520,6 +563,10 @@ font-size:38px;
 height:420px;
 }
 
+#loaderTyping{
+font-size:55px;
+}
+
 }
 
 </style>
@@ -528,6 +575,12 @@ height:420px;
 
 <body>
 
+<!-- LOADER -->
+
+<div id="loader">
+<h1 id="loaderTyping"></h1>
+</div>
+
 <!-- HERO -->
 
 <section class="hero">
@@ -535,8 +588,6 @@ height:420px;
 <img class="hero-bg" src="static/hero.jpg">
 
 <div class="hero-overlay"></div>
-
-<!-- NAVBAR -->
 
 <nav>
 
@@ -553,12 +604,10 @@ Sai Ganesh
 
 </nav>
 
-<!-- HERO CONTENT -->
-
 <div class="hero-content">
 
 <h1>
-Sai <span>Ganesh</span>
+Sai Ganesh
 </h1>
 
 <div class="line"></div>
@@ -593,13 +642,8 @@ Download Resume
 <section id="about">
 
 <div class="section-title">
-
 <h2>About Me</h2>
-
-<p>
-Passionate about AI, Python and premium web development.
-</p>
-
+<p>Passionate about AI, Python and premium web development.</p>
 </div>
 
 <div class="about-grid">
@@ -625,9 +669,7 @@ I enjoy solving logical problems, building real-world projects and continuously 
 </div>
 
 <div class="about-img">
-
 <img src="static/hero2.jpg">
-
 </div>
 
 </div>
@@ -639,63 +681,34 @@ I enjoy solving logical problems, building real-world projects and continuously 
 <section id="skills">
 
 <div class="section-title">
-
 <h2>Skills</h2>
-
-<p>
-Technologies and tools I work with.
-</p>
-
+<p>Technologies and tools I work with.</p>
 </div>
 
 <div class="skills-grid">
 
 <div class="skill-card">
-
 <i class="fa-brands fa-python"></i>
-
 <h3>Python Development</h3>
-
-<p>
-Building applications, backend logic and automation using Python.
-</p>
-
+<p>Building applications, backend logic and automation using Python.</p>
 </div>
 
 <div class="skill-card">
-
 <i class="fa-solid fa-code"></i>
-
 <h3>Web Development</h3>
-
-<p>
-Creating responsive and modern websites using HTML, CSS and JavaScript.
-</p>
-
+<p>Creating responsive and modern websites using HTML, CSS and JavaScript.</p>
 </div>
 
 <div class="skill-card">
-
 <i class="fa-solid fa-robot"></i>
-
 <h3>AI Applications</h3>
-
-<p>
-Working with AI tools, APIs and AI-assisted development workflows.
-</p>
-
+<p>Working with AI tools, APIs and AI-assisted development workflows.</p>
 </div>
 
 <div class="skill-card">
-
 <i class="fa-solid fa-lightbulb"></i>
-
 <h3>Problem Solving</h3>
-
-<p>
-Strong logical thinking and DSA problem solving using Python.
-</p>
-
+<p>Strong logical thinking and DSA problem solving using Python.</p>
 </div>
 
 </div>
@@ -707,18 +720,11 @@ Strong logical thinking and DSA problem solving using Python.
 <section id="projects">
 
 <div class="section-title">
-
 <h2>Featured Projects</h2>
-
-<p>
-Professional projects and modern development works.
-</p>
-
+<p>Professional projects and modern development works.</p>
 </div>
 
 <div class="projects-grid">
-
-<!-- WEB PROJECT -->
 
 <div class="project-card">
 
@@ -731,7 +737,7 @@ Professional projects and modern development works.
 <h3>Luxury Construction Websites</h3>
 
 <p>
-Designed and developed premium responsive websites for modern construction and real-estate businesses with elegant UI/UX and business-focused layouts.
+Designed and developed premium responsive websites for modern construction and real-estate businesses.
 </p>
 
 <div class="project-links">
@@ -750,8 +756,6 @@ Matrix Construction
 
 </div>
 
-<!-- NETWORK -->
-
 <div class="project-card">
 
 <div class="slider">
@@ -763,14 +767,12 @@ Matrix Construction
 <h3>Network Security Simulation</h3>
 
 <p>
-Built a virtual cybersecurity lab using Kali Linux and Ubuntu for vulnerability scanning and penetration testing.
+Built a virtual cybersecurity lab using Kali Linux and Ubuntu.
 </p>
 
 </div>
 
 </div>
-
-<!-- DEEP LEARNING -->
 
 <div class="project-card">
 
@@ -783,7 +785,7 @@ Built a virtual cybersecurity lab using Kali Linux and Ubuntu for vulnerability 
 <h3>Speech Enhancement using Deep Learning</h3>
 
 <p>
-Developed a deep learning model to remove background noise and improve speech clarity using Python and AI techniques.
+Developed a deep learning model to improve speech clarity using AI.
 </p>
 
 <div class="project-links">
@@ -798,8 +800,6 @@ View Project
 
 </div>
 
-<!-- ROBOT -->
-
 <div class="project-card">
 
 <div class="slider">
@@ -811,7 +811,7 @@ View Project
 <h3>Staircase Climbing Robot</h3>
 
 <p>
-Designed and developed a robot capable of staircase climbing and object handling for real-world applications.
+Designed a robot capable of staircase climbing and object handling.
 </p>
 
 </div>
@@ -827,13 +827,8 @@ Designed and developed a robot capable of staircase climbing and object handling
 <section id="contact">
 
 <div class="section-title">
-
 <h2>Contact Me</h2>
-
-<p>
-Open for internships, freelance projects and collaborations.
-</p>
-
+<p>Open for internships and collaborations.</p>
 </div>
 
 <div class="card contact-card">
@@ -865,16 +860,38 @@ Let's connect and build something amazing together.
 <!-- FOOTER -->
 
 <footer>
-
 © 2026 Sai Ganesh | Portfolio
-
 </footer>
 
 <script>
 
+/* LOADER TYPING */
+
+const loaderText = "Sai Ganesh";
+
+let loaderIndex = 0;
+
+function loaderTyping(){
+
+if(loaderIndex < loaderText.length){
+
+document.getElementById("loaderTyping").innerHTML += loaderText.charAt(loaderIndex);
+
+loaderIndex++;
+
+setTimeout(loaderTyping,180);
+
+}
+
+}
+
+loaderTyping();
+
+/* PROJECT SLIDER */
+
 function slider(id,images,delay){
 
-let i=0;
+let x=0;
 
 setInterval(()=>{
 
@@ -884,11 +901,11 @@ img.style.opacity=0;
 
 setTimeout(()=>{
 
-img.src="static/"+images[i];
+img.src="static/"+images[x];
 
 img.style.opacity=1;
 
-i=(i+1)%images.length;
+x=(x+1)%images.length;
 
 },400);
 
