@@ -8,7 +8,7 @@
 
 <title>Sai Ganesh | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
@@ -35,165 +35,223 @@ width:8px;
 }
 
 ::-webkit-scrollbar-thumb{
-background:#00e5ff;
+background:#d4af37;
 border-radius:20px;
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(15px);
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.logo{
-font-size:30px;
-font-weight:700;
-color:#00e5ff;
-text-shadow:0 0 20px #00e5ff;
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:35px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:0.3s;
-}
-
-nav ul li a:hover{
-color:#00e5ff;
 }
 
 /* HERO */
 
 .hero{
 height:100vh;
+position:relative;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-position:relative;
-overflow:hidden;
 text-align:center;
 }
 
-.hero video{
+/* BACKGROUND */
+
+.hero-bg{
 position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(35%);
+object-position:center;
+filter:
+brightness(75%)
+contrast(110%)
+saturate(115%);
+z-index:-3;
+transform:scale(1.03);
+}
+
+/* OVERLAY */
+
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.15),
+rgba(0,0,0,0.45)
+);
 z-index:-2;
 }
 
-.overlay{
+/* NAVBAR */
+
+nav{
 position:absolute;
+top:0;
+left:0;
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-z-index:-1;
+padding:25px 70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:100;
+border-bottom:1px solid rgba(212,175,55,0.25);
+background:rgba(0,0,0,0.18);
+backdrop-filter:blur(10px);
 }
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#d4af37;
+text-shadow:0 0 20px rgba(212,175,55,0.5);
+}
+
+nav ul{
+display:flex;
+gap:50px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:16px;
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#d4af37;
+}
+
+/* HERO CONTENT */
 
 .hero-content{
+max-width:1000px;
 padding:20px;
-}
-
-.hero-img{
-width:220px;
-height:220px;
-border-radius:50%;
-overflow:hidden;
-margin:auto;
-margin-bottom:30px;
-border:4px solid #00e5ff;
-box-shadow:0 0 40px rgba(0,229,255,0.5);
-animation:float 4s ease-in-out infinite;
-}
-
-.hero-img img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-@keyframes float{
-0%,100%{
-transform:translateY(0px);
-}
-50%{
-transform:translateY(-12px);
-}
+margin-top:300px;
 }
 
 .hero-content h1{
-font-size:80px;
+font-size:110px;
+font-weight:800;
+line-height:1;
 margin-bottom:20px;
+text-shadow:0 0 35px rgba(212,175,55,0.2);
 }
 
-.hero-content span{
-color:#00e5ff;
-text-shadow:0 0 35px #00e5ff;
+.hero-content h1 span{
+color:#d4af37;
 }
+
+/* GOLD LINE */
+
+.line{
+width:220px;
+height:2px;
+background:#d4af37;
+margin:auto;
+margin-bottom:28px;
+position:relative;
+}
+
+.line::after{
+content:"";
+position:absolute;
+width:14px;
+height:14px;
+background:#d4af37;
+border-radius:50%;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+}
+
+/* TEXT */
 
 .hero-content p{
 font-size:22px;
+color:#e2e8f0;
 line-height:1.8;
-color:#d1d5db;
-max-width:850px;
-margin:auto;
-margin-bottom:40px;
+margin-bottom:45px;
 }
+
+/* BUTTONS */
 
 .hero-buttons{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:30px;
 flex-wrap:wrap;
 }
 
-.btn{
-padding:15px 35px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:0.4s;
-}
+/* PRIMARY BUTTON */
 
 .primary-btn{
-background:#00e5ff;
+padding:18px 55px;
+background:#d4af37;
 color:black;
-box-shadow:0 0 25px rgba(0,229,255,0.6);
+font-weight:600;
+font-size:18px;
+text-decoration:none;
+border-radius:60px;
+transition:0.4s;
+box-shadow:0 0 35px rgba(212,175,55,0.4);
 }
 
 .primary-btn:hover{
 transform:translateY(-5px);
-box-shadow:0 0 40px rgba(0,229,255,1);
+box-shadow:0 0 50px rgba(212,175,55,0.8);
 }
 
+/* SECONDARY BUTTON */
+
 .secondary-btn{
-background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.08);
+padding:18px 45px;
+border:1px solid rgba(212,175,55,0.5);
 color:white;
+font-size:18px;
+text-decoration:none;
+border-radius:60px;
+transition:0.4s;
+display:flex;
+align-items:center;
+gap:12px;
+background:rgba(0,0,0,0.2);
+backdrop-filter:blur(10px);
 }
 
 .secondary-btn:hover{
-background:#00e5ff;
+background:#d4af37;
 color:black;
+transform:translateY(-5px);
+}
+
+/* SCROLL DOWN */
+
+.scroll-down{
+margin-top:60px;
+font-size:34px;
+color:#d4af37;
+animation:scroll 2s infinite;
+}
+
+@keyframes scroll{
+
+0%{
+transform:translateY(0);
+opacity:0.5;
+}
+
+50%{
+transform:translateY(12px);
+opacity:1;
+}
+
+100%{
+transform:translateY(0);
+opacity:0.5;
+}
+
 }
 
 /* SECTION */
@@ -201,6 +259,8 @@ color:black;
 section{
 padding:110px 8%;
 }
+
+/* SECTION TITLE */
 
 .section-title{
 text-align:center;
@@ -210,11 +270,12 @@ margin-bottom:70px;
 .section-title h2{
 font-size:52px;
 margin-bottom:15px;
-color:#00e5ff;
+color:#d4af37;
 }
 
 .section-title p{
 color:#94a3b8;
+font-size:16px;
 }
 
 /* GLASS CARD */
@@ -224,14 +285,14 @@ background:rgba(255,255,255,0.04);
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,0.08);
 padding:40px;
-border-radius:30px;
+border-radius:28px;
 transition:0.4s;
 box-shadow:0 0 30px rgba(0,0,0,0.3);
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 40px rgba(0,229,255,0.3);
+box-shadow:0 0 40px rgba(212,175,55,0.2);
 }
 
 /* ABOUT */
@@ -243,14 +304,20 @@ gap:50px;
 align-items:center;
 }
 
+.about-img{
+display:flex;
+justify-content:center;
+}
+
 .about-img img{
 width:100%;
-max-width:420px;
+max-width:620px;
 height:520px;
 object-fit:cover;
+object-position:center top;
 border-radius:30px;
-box-shadow:0 0 40px rgba(0,229,255,0.3);
-border:2px solid rgba(0,229,255,0.25);
+border:2px solid rgba(212,175,55,0.2);
+box-shadow:0 0 40px rgba(212,175,55,0.25);
 }
 
 .about-content p{
@@ -263,12 +330,12 @@ color:#d1d5db;
 
 .skills-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:25px;
 }
 
 .skill-card{
-padding:30px;
+padding:32px;
 border-radius:25px;
 background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.08);
@@ -278,46 +345,24 @@ text-align:center;
 
 .skill-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(0,229,255,0.35);
+box-shadow:0 0 35px rgba(212,175,55,0.25);
 }
 
 .skill-card i{
-font-size:40px;
-color:#00e5ff;
+font-size:42px;
+color:#d4af37;
 margin-bottom:20px;
 }
 
 .skill-card h3{
 margin-bottom:15px;
+font-size:22px;
 }
 
 .skill-card p{
 line-height:1.8;
 color:#d1d5db;
-}
-
-/* TECH STACK */
-
-.tech-stack{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:18px;
-margin-top:50px;
-}
-
-.tech{
-padding:14px 28px;
-border-radius:40px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-transition:0.3s;
-}
-
-.tech:hover{
-background:#00e5ff;
-color:black;
-transform:translateY(-5px);
+font-size:15px;
 }
 
 /* PROJECTS */
@@ -338,13 +383,23 @@ border:1px solid rgba(255,255,255,0.06);
 
 .project-card:hover{
 transform:translateY(-12px);
-box-shadow:0 0 40px rgba(0,229,255,0.35);
+box-shadow:0 0 40px rgba(212,175,55,0.28);
 }
 
-.project-card img{
+.slider{
+overflow:hidden;
+}
+
+.slider img{
 width:100%;
-height:240px;
+height:250px;
 object-fit:cover;
+transition:0.7s ease;
+}
+
+.project-card:hover img{
+transform:scale(1.06);
+filter:brightness(1.08);
 }
 
 .project-content{
@@ -354,13 +409,14 @@ padding:28px;
 .project-content h3{
 font-size:24px;
 margin-bottom:15px;
-color:#00e5ff;
+color:#d4af37;
 }
 
 .project-content p{
 line-height:1.8;
 color:#d1d5db;
-margin-bottom:22px;
+margin-bottom:20px;
+font-size:15px;
 }
 
 .project-links{
@@ -371,17 +427,18 @@ flex-wrap:wrap;
 
 .project-links a{
 padding:12px 24px;
-background:#00e5ff;
+background:#d4af37;
 color:black;
 text-decoration:none;
 font-weight:600;
 border-radius:30px;
 transition:0.3s;
+font-size:14px;
 }
 
 .project-links a:hover{
 transform:translateY(-4px);
-box-shadow:0 0 25px rgba(0,229,255,0.7);
+box-shadow:0 0 25px rgba(212,175,55,0.7);
 }
 
 /* CONTACT */
@@ -394,6 +451,7 @@ text-align:center;
 line-height:1.8;
 color:#d1d5db;
 margin-bottom:35px;
+font-size:16px;
 }
 
 .contact-links{
@@ -413,7 +471,7 @@ transition:0.3s;
 }
 
 .contact-links a:hover{
-background:#00e5ff;
+background:#d4af37;
 color:black;
 transform:translateY(-5px);
 }
@@ -425,6 +483,7 @@ padding:25px;
 text-align:center;
 background:#020617;
 color:#94a3b8;
+font-size:14px;
 }
 
 /* MOBILE */
@@ -432,24 +491,33 @@ color:#94a3b8;
 @media(max-width:900px){
 
 .hero-content h1{
-font-size:48px;
+font-size:58px;
 }
 
 .hero-content p{
-font-size:18px;
+font-size:17px;
 }
 
-.section-title h2{
-font-size:38px;
+nav{
+padding:20px 25px;
 }
 
 nav ul{
 display:none;
 }
 
-.hero-img{
-width:170px;
-height:170px;
+.primary-btn,
+.secondary-btn{
+font-size:15px;
+padding:15px 28px;
+}
+
+.section-title h2{
+font-size:38px;
+}
+
+.about-img img{
+height:420px;
 }
 
 }
@@ -460,11 +528,21 @@ height:170px;
 
 <body>
 
+<!-- HERO -->
+
+<section class="hero">
+
+<img class="hero-bg" src="static/hero.jpg">
+
+<div class="hero-overlay"></div>
+
 <!-- NAVBAR -->
 
 <nav>
 
-<div class="logo">Sai Ganesh</div>
+<div class="logo">
+Sai Ganesh
+</div>
 
 <ul>
 <li><a href="#about">About</a></li>
@@ -475,40 +553,35 @@ height:170px;
 
 </nav>
 
-<!-- HERO -->
-
-<section class="hero">
-
-<video autoplay muted loop>
-<source src="static/bg.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
+<!-- HERO CONTENT -->
 
 <div class="hero-content">
-
-<div class="hero-img">
-<img src="static/profile.jpg">
-</div>
 
 <h1>
 Sai <span>Ganesh</span>
 </h1>
 
+<div class="line"></div>
+
 <p>
-Python Developer | AI Application Developer | Creating Premium Responsive Websites & Real World Projects
+Python Developer | AI Enthusiast | Building Modern Web Experiences
 </p>
 
 <div class="hero-buttons">
 
-<a href="#projects" class="btn primary-btn">
+<a href="#projects" class="primary-btn">
 View Projects
 </a>
 
-<a href="resume.pdf" class="btn secondary-btn">
+<a href="resume.pdf" class="secondary-btn">
 Download Resume
+<i class="fa-solid fa-download"></i>
 </a>
 
+</div>
+
+<div class="scroll-down">
+<i class="fa-solid fa-angles-down"></i>
 </div>
 
 </div>
@@ -524,7 +597,7 @@ Download Resume
 <h2>About Me</h2>
 
 <p>
-Passionate about Python, AI and modern web development.
+Passionate about AI, Python and premium web development.
 </p>
 
 </div>
@@ -540,13 +613,13 @@ I am Sai Ganesh from Nellore, Andhra Pradesh currently pursuing B.Tech in Electr
 <br>
 
 <p>
-I am passionate about Python development, AI applications and creating modern responsive websites with premium UI/UX experiences.
+I am passionate about Python development, AI applications and building modern responsive websites with premium UI/UX experiences.
 </p>
 
 <br>
 
 <p>
-I enjoy solving logical problems, building real-world projects and continuously learning modern technologies.
+I enjoy solving logical problems, building real-world projects and continuously learning modern technologies to grow as a software developer.
 </p>
 
 </div>
@@ -584,7 +657,7 @@ Technologies and tools I work with.
 <h3>Python Development</h3>
 
 <p>
-Building applications, automation and backend logic using Python.
+Building applications, backend logic and automation using Python.
 </p>
 
 </div>
@@ -620,24 +693,10 @@ Working with AI tools, APIs and AI-assisted development workflows.
 <h3>Problem Solving</h3>
 
 <p>
-Strong logical thinking and problem solving using Python and DSA.
+Strong logical thinking and DSA problem solving using Python.
 </p>
 
 </div>
-
-</div>
-
-<div class="tech-stack">
-
-<div class="tech">Python</div>
-<div class="tech">HTML</div>
-<div class="tech">CSS</div>
-<div class="tech">JavaScript</div>
-<div class="tech">APIs</div>
-<div class="tech">GitHub</div>
-<div class="tech">VS Code</div>
-<div class="tech">PyCharm</div>
-<div class="tech">AI Tools</div>
 
 </div>
 
@@ -652,7 +711,7 @@ Strong logical thinking and problem solving using Python and DSA.
 <h2>Featured Projects</h2>
 
 <p>
-College projects and premium web development projects.
+Professional projects and modern development works.
 </p>
 
 </div>
@@ -663,7 +722,9 @@ College projects and premium web development projects.
 
 <div class="project-card">
 
-<img src="static/project1.jpg">
+<div class="slider">
+<img id="webSlide">
+</div>
 
 <div class="project-content">
 
@@ -689,29 +750,61 @@ Matrix Construction
 
 </div>
 
-<!-- COLLEGE PROJECT -->
+<!-- NETWORK -->
 
 <div class="project-card">
 
-<img src="static/project2.jpg">
+<div class="slider">
+<img id="netSlide">
+</div>
 
 <div class="project-content">
 
-<h3>Speech Enhancement using Deep Learning</h3>
+<h3>Network Security Simulation</h3>
 
 <p>
-Developed a deep learning model to reduce background noise and improve speech clarity using Python and AI techniques.
+Built a virtual cybersecurity lab using Kali Linux and Ubuntu for vulnerability scanning and penetration testing.
 </p>
 
 </div>
 
 </div>
 
-<!-- ROBOT PROJECT -->
+<!-- DEEP LEARNING -->
 
 <div class="project-card">
 
-<img src="static/project3.jpg">
+<div class="slider">
+<img id="deepSlide">
+</div>
+
+<div class="project-content">
+
+<h3>Speech Enhancement using Deep Learning</h3>
+
+<p>
+Developed a deep learning model to remove background noise and improve speech clarity using Python and AI techniques.
+</p>
+
+<div class="project-links">
+
+<a href="https://colab.research.google.com/drive/1nkL0WuZ3VHH3gFow7Jo6NSY59zrSOlov?usp=sharing" target="_blank">
+View Project
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ROBOT -->
+
+<div class="project-card">
+
+<div class="slider">
+<img id="roboSlide">
+</div>
 
 <div class="project-content">
 
@@ -776,6 +869,42 @@ Let's connect and build something amazing together.
 © 2026 Sai Ganesh | Portfolio
 
 </footer>
+
+<script>
+
+function slider(id,images,delay){
+
+let i=0;
+
+setInterval(()=>{
+
+let img=document.getElementById(id);
+
+img.style.opacity=0;
+
+setTimeout(()=>{
+
+img.src="static/"+images[i];
+
+img.style.opacity=1;
+
+i=(i+1)%images.length;
+
+},400);
+
+},delay);
+
+}
+
+slider("webSlide",["web1.jpg","web2.jpg"],3000);
+
+slider("netSlide",["net1.jpg","net2.jpg"],3000);
+
+slider("deepSlide",["deep1.jpg","deep2.jpg"],3000);
+
+slider("roboSlide",["robo1.jpg","robo2.jpg"],3000);
+
+</script>
 
 </body>
 
